@@ -146,6 +146,7 @@ appsettings.json
 *.sln
 *.json
 *.Development.json
+appsettings
 
 # Build results
 [Dd]ebug/
