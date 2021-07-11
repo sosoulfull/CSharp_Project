@@ -11,7 +11,6 @@ namespace CSharp_Project.Models
 
         public int GroupNumber {get;set;}
 
-        Instructor instructor {get;set;}
 
         public List<Student> JoinedStudents {get;set;}
         public List<Project> CreatedProjects {set;get;}

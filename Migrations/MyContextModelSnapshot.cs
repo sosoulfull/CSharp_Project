@@ -111,7 +111,7 @@ namespace CSharp_Project.Migrations
                     b.Property<int?>("GroupId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InstructorId")
+                    b.Property<int>("InstructorId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -182,7 +182,9 @@ namespace CSharp_Project.Migrations
 
                     b.HasOne("CSharp_Project.Models.Instructor", null)
                         .WithMany("Students")
-                        .HasForeignKey("InstructorId");
+                        .HasForeignKey("InstructorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CSharp_Project.Models.TA", b =>

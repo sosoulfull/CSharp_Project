@@ -9,10 +9,13 @@ namespace CSharp_Project.Models
     {
         [Required]
         [EmailAddress]
-        public string Email {get;set;}
 
+        [Display(Name = "Email")]
+        public string LoginEmail {get;set;}
+
+        [Display(Name = "Password")]
         [Required]
         [DataType(DataType.Password)]
-        public string Password {get;set;}
+        public string LoginPassword {get;set;}
     }
 }
