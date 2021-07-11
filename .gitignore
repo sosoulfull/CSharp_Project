@@ -1,12 +1,4 @@
 env/
-*.suo
-*.user
-_ReSharper.*
-bin
-obj/
-packages
-CSharp_Project.csproj.nuget.dgspec.json
-
 
 # OS
 # ===========
@@ -146,7 +138,6 @@ appsettings.json
 *.sln
 *.json
 *.Development.json
-appsettings
 
 # Build results
 [Dd]ebug/
