@@ -3,8 +3,10 @@ env/
 *.user
 _ReSharper.*
 bin
-obj
+obj/
 packages
+CSharp_Project.csproj.nuget.dgspec.json
+
 
 # OS
 # ===========
