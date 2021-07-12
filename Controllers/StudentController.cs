@@ -30,6 +30,7 @@ namespace CSharp_Project.Controllers
         [HttpGet("registration_login")]
         public IActionResult RegLogin()
         {
+            ViewBag.Allgroups = dbContext.groups.ToList();
             ViewBag.AllInstructors = dbContext.instructors.ToList();
             return View("Register");
         }
@@ -42,6 +43,7 @@ namespace CSharp_Project.Controllers
                 if (dbContext.students.Any(u => u.Email == regStudent.Email))
                 {
                     ModelState.AddModelError("Email", "The Email is already in use!");
+                    ViewBag.Allgroups = dbContext.groups.ToList();
                     ViewBag.AllInstructors = dbContext.instructors.ToList();
                     return View("Register");
                 }
@@ -53,6 +55,7 @@ namespace CSharp_Project.Controllers
                 HttpContext.Session.SetString("name", regStudent.FirstName);
                 return RedirectToAction("Dashboard");
             }
+            ViewBag.Allgroups = dbContext.groups.ToList();
             ViewBag.AllInstructors = dbContext.instructors.ToList();
             return View("Register");
         }
@@ -75,9 +78,11 @@ namespace CSharp_Project.Controllers
                 }
 
                 ModelState.AddModelError("LoginEmail", "Invalid login credentials!");
+                ViewBag.Allgroups = dbContext.groups.ToList();
                 ViewBag.AllInstructors = dbContext.instructors.ToList();
                 return View("Register");
             }
+            ViewBag.Allgroups = dbContext.groups.ToList();
             ViewBag.AllInstructors = dbContext.instructors.ToList();
             return View("Register");
         }

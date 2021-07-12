@@ -108,7 +108,7 @@ namespace CSharp_Project.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int?>("GroupId")
+                    b.Property<int>("GroupId")
                         .HasColumnType("int");
 
                     b.Property<int>("InstructorId")
@@ -176,11 +176,13 @@ namespace CSharp_Project.Migrations
 
             modelBuilder.Entity("CSharp_Project.Models.Student", b =>
                 {
-                    b.HasOne("CSharp_Project.Models.Group", null)
+                    b.HasOne("CSharp_Project.Models.Group", "group")
                         .WithMany("JoinedStudents")
-                        .HasForeignKey("GroupId");
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("CSharp_Project.Models.Instructor", null)
+                    b.HasOne("CSharp_Project.Models.Instructor", "instructor")
                         .WithMany("Students")
                         .HasForeignKey("InstructorId")
                         .OnDelete(DeleteBehavior.Cascade)

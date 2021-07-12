@@ -47,6 +47,16 @@
             </div>
 
             <div class="form-group">
+                <label asp-for="GroupId"></label><br>
+                <select asp-for="GroupId" class="form-select">
+                    @foreach (Group g in ViewBag.Allgroups)
+                    {
+                        <option value="@g.GroupId">@g.GroupNumber</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="InstructorId"></label><br>
                 <select asp-for="InstructorId" class="form-select">
                     @foreach (Instructor i in ViewBag.AllInstructors)
@@ -54,7 +64,7 @@
                         <option value="@i.InstructorId">@i.Name</option>
                     }
                 </select>
-            </div> 
+            </div>
             <button class="btn btn-primary">Sign up</button>
         </form>
     </div>
