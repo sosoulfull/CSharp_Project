@@ -1,1 +1,48 @@
-@* group students names *@
+@{
+    ViewData["Title"] = "Group Page";
+}
+@model Group
+@{
+    int? UserID = Context.Session.GetInt32("uid");
+}
+<div class="text-center">
+    <h3>Group @Model.GroupNumber</h3>
+</div>
+
+<div class="content">
+    <div class="members">
+        <h4>Group Members</h4>
+        @{
+            
+                foreach(Student s in Model.JoinedStudents)
+                {
+                    <ul>
+                        <li><a href="/students/@s.StudentId">@s.FirstName @s.LastName</a></li>
+                    </ul>
+                } 
+            
+        }
+    </div>
+
+    <div class="projects">
+        @{
+            <h4>Group Projects</h4>
+            foreach(Project p in Model.CreatedProjects)
+            {
+                <ul>
+                    <li><a href="/projects/@p.ProjectId">@p.ProjectName</a></li>
+                </ul>
+            }
+        }
+    </div>
+
+    <div class="addProj">
+        @{
+            if(@Model.JoinedStudents.Any(s => s.StudentId == UserID))
+            {
+                <p>Add a Project to Your Group!</p>
+                <button class="btn btn-dark"><a href="/project/create">New Project</a></button>
+            }
+        }
+    </div>
+</div>

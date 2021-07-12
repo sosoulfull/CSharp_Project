@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Project Page";
+}
+@model Project
+
+<div class="text-center">
+    <h3> @Model.ProjectName</h3>
+</div>
+<div class="content">
+        <div class="details">
+        <p>@Model.Description</p>
+        <p> We did this project for @Model.StackName Stack</p>
+        <p>You can find the source code for this project <a href="@Model.ProjectGithub" target="_blank"> HERE</a></p>
+    </div>
+
+    <div class="group-members">
+        <h5>This Project done By Group @ViewBag.ThisGroup.GroupNumber:</h5>
+        @{
+            
+                foreach(Student s in ViewBag.ThisGroup.JoinedStudents)
+                {
+                    <ul>
+                        <li><a href="/students/@s.StudentId">@s.FirstName @s.LastName</a></li>
+                    </ul>  
+                }
+            
+        }
+    </div>
+
+    <div class="edit-proj">
+        @{
+            if(ViewBag.CanEdit == "yes")
+                {
+                    <p>Edit this Project!</p>
+                    <button class="btn btn-dark"><a href="/project/edit/@Model.ProjectId">Edit Project</a></button>
+                }
+            }
+    </div>
+</div>

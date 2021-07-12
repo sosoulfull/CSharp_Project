@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using CSharp_Project.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +32,28 @@ namespace CSharp_Project.Controllers
             dbContext.projects.Add(newProject);
             dbContext.SaveChanges();
             return Redirect("/");
+        }
+
+        [HttpGet("projects/{projId}")]
+        public IActionResult ProjectDetails(int projId)
+        {
+            Project thisProject = dbContext.projects.FirstOrDefault(p => p.ProjectId == projId);
+            ViewBag.ThisGroup = dbContext.groups
+            .Include(g => g.JoinedStudents)
+            .Include(g => g.CreatedProjects)
+            .FirstOrDefault(g => g.GroupId == thisProject.GroupId);
+            List<Student> groupMembers = ViewBag.ThisGroup.JoinedStudents;
+            int? id =  HttpContext.Session.GetInt32("uid");
+            if(groupMembers.Any(s => s.StudentId == id ))
+            {
+                ViewBag.CanEdit = "yes";
+            }
+            else
+            {
+                ViewBag.CanEdit = "no";
+
+            }
+            return View(thisProject);
         }
 
     }
