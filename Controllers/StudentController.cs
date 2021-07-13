@@ -26,6 +26,12 @@ namespace CSharp_Project.Controllers
         {
             return View();
         }
+        [HttpGet("a")]
+        public IActionResult Dashboard2()
+        {
+            return View();
+        }
+
 
         [HttpGet("registration_login")]
         public IActionResult RegLogin()

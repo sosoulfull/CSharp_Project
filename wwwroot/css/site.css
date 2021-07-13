@@ -24,6 +24,152 @@ a {
   border-color: #1861ac;
 }
 
+
+
+
+/* ------------R-------------- */
+
+
+
+
+
+
+
+
+
+/* DRAFT */
+.projects{
+  /* display: inline; */
+  /* justify-content: space-between; */
+  width: 860px;
+  margin: 20px;
+  padding: 5px;
+  /* background-color: #0366d6; */
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 240px; /*was200*/
+  display: inline-block;
+  margin: 15px;
+  text-align: center;
+  font-family: arial;
+  font-size: 10px;
+}
+.card img{
+  max-width: min-content;
+}
+
+.stack {
+  color: grey;
+  font-size: 10px;
+}
+.group {
+  color: rgb(65, 57, 57);
+  font-size: 10px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+
+
+
+
+/* DRAFT 2 */
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body, html {
+  /* height: 100%; */
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+  /* background-color: rgb(109, 143, 170); */
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+.grouplabel{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  font-size: 10px;
+}
+.grouplabel div{
+  padding: 10px;
+}
+.grouplabel button{
+  margin-top: 15px;
+}
+.grouplabel button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 10px;
+}
+
+.grouplabel button:hover {
+  opacity: 0.7;
+}
+
+/* #Home {background-color: rgb(186, 215, 224);}
+#News {background-color: rgb(148, 196, 160);} */
+#Home {background-color: rgb(232, 240, 241);}
+#News {background-color: rgb(232, 240, 241);} 
+
+#Contact {background-color: rgb(221, 222, 250);}
+#About {background-color: rgb(252, 222, 167);}
+
+
+/* ------------r-------------- */
+
+
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -50,6 +196,10 @@ button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
+
+
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -84,3 +234,4 @@ body {
 .content button a{
 color: white;
 }
+
