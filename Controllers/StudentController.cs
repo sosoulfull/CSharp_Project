@@ -91,7 +91,7 @@ namespace CSharp_Project.Controllers
             return View("Register");
         }
 
-        [HttpGet("profile/{uid}")]
+        [HttpGet("students/{uid}")]
         public IActionResult Profile(int uid)
         {
             Student Details = dbContext.students.FirstOrDefault(s => s.StudentId == uid);
