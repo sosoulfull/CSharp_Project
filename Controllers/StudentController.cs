@@ -94,7 +94,9 @@ namespace CSharp_Project.Controllers
         [HttpGet("students/{uid}")]
         public IActionResult Profile(int uid)
         {
-            Student Details = dbContext.students.FirstOrDefault(s => s.StudentId == uid);
+            Student Details = dbContext.students
+            .Include(g => g.group)
+            .FirstOrDefault(s => s.StudentId == uid);
             int? gid = Details.GroupId;
             ViewBag.AllProjects = dbContext.groups.Include( t => t.CreatedProjects )
             .FirstOrDefault( t => t.GroupId == gid );
@@ -110,7 +112,5 @@ namespace CSharp_Project.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Dashboard");
         }
-        
-        
     }
 }
