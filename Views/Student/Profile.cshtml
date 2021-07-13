@@ -6,7 +6,7 @@
 <div>
     <h1>@Model.FirstName @Model.LastName profile</h1>
 
-    <p> With Group: <a href="groups/@Model.GroupId" target="_blank">@Model.GroupId</a></p>
+    <p> With Group: <a href="/groups/@Model.GroupId">@Model.GroupId</a></p>
     <p> Contact info: </p>
     <ul>
         <li>
@@ -19,4 +19,16 @@
             <a href="@Model.StudentGithub" target="_blank">GitHub</a>
         </li>
     </ul>
+    <p>Projects Worked on:</p>
+    <div>
+        @{
+            
+                foreach(Project p in ViewBag.AllProjects.CreatedProjects)
+                {
+                    <ul>
+                        <li><a href="/projects/@p.ProjectId">@p.ProjectName</a></li>
+                    </ul>  
+                }
+        }
+    </div>
 </div>

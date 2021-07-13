@@ -8,6 +8,10 @@ using Microsoft.Extensions.Logging;
 using CSharp_Project.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+
+
+using Microsoft.AspNetCore.Http;
 
 namespace CSharp_Project.Controllers
 {
@@ -91,6 +95,9 @@ namespace CSharp_Project.Controllers
         public IActionResult Profile(int uid)
         {
             Student Details = dbContext.students.FirstOrDefault(s => s.StudentId == uid);
+            int? gid = Details.GroupId;
+            ViewBag.AllProjects = dbContext.groups.Include( t => t.CreatedProjects )
+            .FirstOrDefault( t => t.GroupId == gid );
             return View("Profile", Details);
         }
 
