@@ -87,6 +87,13 @@ namespace CSharp_Project.Controllers
             return View("Register");
         }
 
+        [HttpGet("profile/{uid}")]
+        public IActionResult Profile(int uid)
+        {
+            Student Details = dbContext.students.FirstOrDefault(s => s.StudentId == uid);
+            return View("Profile", Details);
+        }
+
         [HttpGet("logout")]
         public IActionResult Logout()
         {
