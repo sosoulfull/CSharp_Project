@@ -3,16 +3,19 @@
     @model Project;
     <form asp-action="CreateProject" asp-controller="Project" method="post">
         <div class="form-group">
-            <input asp-for="ProjectName" class="form-control" placeholder="ProjectName">
+            <input asp-for="ProjectName" class="form-control" placeholder="Project Name">
+            <span class="text-danger" asp-validation-for="ProjectName"></span>
         </div>
         <div class="form-group">
             <input asp-for="Description" class="form-control" placeholder="Description">
+            <span class="text-danger" asp-validation-for="Description"></span>
         </div>
         <div class="form-group">
-            <input asp-for="StackName" class="form-control" placeholder="StackName">
+            <input asp-for="StackName" class="form-control" placeholder="Stack Name">
+            <span class="text-danger" asp-validation-for="StackName"></span>
         </div>
         <div class="form-group">
-            <input asp-for="ProjectGithub" class="form-control" placeholder="ProjectGithub">
+            <input asp-for="ProjectGithub" class="form-control" placeholder="Project Github">
         </div>
         <div class="form-group">
             <input class="btn btn-primary" type="submit" value="Add Project">
