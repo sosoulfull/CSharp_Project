@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 
-using Microsoft.AspNetCore.Http;
 
 namespace CSharp_Project.Controllers
 {
