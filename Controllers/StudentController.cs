@@ -98,6 +98,9 @@ namespace CSharp_Project.Controllers
             int? gid = Details.GroupId;
             ViewBag.AllProjects = dbContext.groups.Include( t => t.CreatedProjects )
             .FirstOrDefault( t => t.GroupId == gid );
+            ViewBag.InstructorWithTAs = dbContext.instructors
+            .Include(i => i.TAs)
+            .FirstOrDefault(i => i.InstructorId == Details.InstructorId);
             return View("Profile", Details);
         }
 

@@ -31,4 +31,15 @@
                 }
         }
     </div>
+    <div class="instructor">
+        <h3>Bootcamp Staff</h3>
+        @{
+            <p>Instructor: @ViewBag.InstructorWithTAs.Name</p>
+            <p>TAs:</p>
+            foreach(TA ta in ViewBag.InstructorWithTAs.TAs)
+            {
+                <p>@ta.Name</p>
+            }
+        }
+    </div>
 </div>
