@@ -115,6 +115,47 @@ namespace CSharp_Project.Controllers
             return View("Profile", Details);
         }
 
+
+        [HttpGet("students/edit/{uid}")]
+        public IActionResult EditProfile(int uid)
+        {
+            if (HttpContext.Session.GetInt32("uid") != null)
+            {
+                ViewBag.Allgroups = dbContext.groups.ToList();
+                ViewBag.AllInstructors = dbContext.instructors.ToList();
+                
+                Student Edit = dbContext.students.FirstOrDefault(s => s.StudentId == uid);
+                return View("EditProfile", Edit);
+            }
+            
+            ViewBag.Allgroups = dbContext.groups.ToList();
+            ViewBag.AllInstructors = dbContext.instructors.ToList();
+            return Redirect($"/");
+        }
+
+        [HttpPost("students/edit/{uid}")]
+        public IActionResult UpdateProfile(int uid, Student editedProfile)
+        {
+            ViewBag.Allgroups = dbContext.groups.ToList();
+            ViewBag.AllInstructors = dbContext.instructors.ToList();
+            Student EditProfile = dbContext.students.FirstOrDefault(s => s.StudentId == uid);
+            if (ModelState.IsValid)
+            {
+                EditProfile.FirstName = editedProfile.FirstName;
+                EditProfile.LastName = editedProfile.LastName;
+                EditProfile.Email = editedProfile.Email;
+                EditProfile.StudentGithub = editedProfile.StudentGithub;
+                EditProfile.linkedin = editedProfile.linkedin;
+                EditProfile.GroupId = editedProfile.GroupId;
+                EditProfile.InstructorId = editedProfile.InstructorId;
+                EditProfile.UpdatedAt = DateTime.Now;
+                dbContext.SaveChanges();
+                return Redirect($"/students/{uid}");
+            }
+           
+            return View("EditProfile", EditProfile);
+        }
+
         [HttpGet("logout")]
         public IActionResult Logout()
         {
