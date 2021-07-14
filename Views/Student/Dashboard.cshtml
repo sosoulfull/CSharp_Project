@@ -31,11 +31,11 @@
         {
             <div class="grouplabel">
                 <div>
-                    <h6> Group @g.GroupNumber</h6>
-                    <p>Members:</p>
+                    <p></p>
+                    <h6> Group @g.GroupNumber Members:</h6>
                     @foreach (Student s in g.JoinedStudents)
                     {
-                        <p>@s.FirstName @s.LastName</p>
+                        <h7>| @s.FirstName @s.LastName |</h7>
                     }
                 </div>
                 <div>
