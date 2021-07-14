@@ -4,7 +4,22 @@
 // Write your JavaScript code.
 
 
-
+$("#signup").click(function() {
+	$(".message").css("transform", "translateX(100%)");
+	if ($(".message").hasClass("login")) {
+	  $(".message").removeClass("login");
+	}
+	$(".message").addClass("signup");
+  });
+  
+  $("#login").click(function() {
+	$(".message").css("transform", "translateX(0)");
+	if ($(".message").hasClass("login")) {
+	  $(".message").removeClass("signup");
+	}
+	$(".message").addClass("login");
+  });
+  
 
 
 // FOR DRAFT 2
@@ -142,19 +157,4 @@ particlesJS("particles-js", {
 	"retina_detect": true
 }); 
 
-$("#signup").click(function() {
-	$(".message").css("transform", "translateX(100%)");
-	if ($(".message").hasClass("login")) {
-	  $(".message").removeClass("login");
-	}
-	$(".message").addClass("signup");
-  });
-  
-  $("#login").click(function() {
-	$(".message").css("transform", "translateX(0)");
-	if ($(".message").hasClass("login")) {
-	  $(".message").removeClass("signup");
-	}
-	$(".message").addClass("login");
-  });
-  
+
