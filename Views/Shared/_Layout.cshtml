@@ -26,9 +26,10 @@
                                 if (Context.Session.GetInt32("uid") != null)
                                 {
                                     int id = (int)Context.Session.GetInt32("uid");
+                                    int gid = (int)Context.Session.GetInt32("gid");
                                     <li><a class="nav-link" href="/students/@id">My profile</a></li>
                                     <li><a class="nav-link" href="/project/create">Create projects</a></li>
-                                    <li><a class="nav-link" href="/students/edit/@id">Edit profile</a></li>
+                                    <li><a class="nav-link" href="/groups/@gid">My Group</a></li>
                                     <li><a class="nav-link" asp-controller="Student" asp-action="Logout">Logout</a></li>
                                 }
                                 else

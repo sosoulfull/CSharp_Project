@@ -26,6 +26,18 @@
 
             </div>
 
+            <div style="display: flex; margin-top:-20px">
+                <div class="form-group">
+
+                    <label asp-for="Password"></label>
+                    <input style="margin-right: 20px;" type="password" asp-for="Password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Confirm"></label>
+                    <input asp-for="Confirm" type="password" placeholder="Codirm password">
+                </div>
+            </div>
+
             <div style="margin-right: 100px;">
                 <div style="margin-left: 10px;" class="form-group">
                     <label asp-for="StudentGithub"></label>
@@ -58,7 +70,6 @@
                         }
                     </select>
                 </div>
-                
             </div>
             <button class="button">Edit</button>
         </form>

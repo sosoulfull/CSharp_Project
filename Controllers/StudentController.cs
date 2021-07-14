@@ -65,6 +65,7 @@ namespace CSharp_Project.Controllers
                 dbContext.students.Add(regStudent);
                 dbContext.SaveChanges();
                 HttpContext.Session.SetInt32("uid", regStudent.StudentId);
+                HttpContext.Session.SetInt32("gid", regStudent.GroupId);
                 HttpContext.Session.SetString("name", regStudent.FirstName);
                 return RedirectToAction("Dashboard");
             }
@@ -85,6 +86,7 @@ namespace CSharp_Project.Controllers
                     if (Hasher.VerifyHashedPassword(thisStudent, LoggedStudent.Password, thisStudent.LoginPassword) != 0)
                     {
                         HttpContext.Session.SetInt32("uid", LoggedStudent.StudentId);
+                        HttpContext.Session.SetInt32("gid", LoggedStudent.GroupId);
                         HttpContext.Session.SetString("name", LoggedStudent.FirstName);
                         return RedirectToAction("Dashboard");
                     }
@@ -141,9 +143,12 @@ namespace CSharp_Project.Controllers
             Student EditProfile = dbContext.students.FirstOrDefault(s => s.StudentId == uid);
             if (ModelState.IsValid)
             {
+
                 EditProfile.FirstName = editedProfile.FirstName;
                 EditProfile.LastName = editedProfile.LastName;
                 EditProfile.Email = editedProfile.Email;
+                PasswordHasher<Student> Hasher = new PasswordHasher<Student>();
+                EditProfile.Password = Hasher.HashPassword(editedProfile, editedProfile.Password);
                 EditProfile.StudentGithub = editedProfile.StudentGithub;
                 EditProfile.linkedin = editedProfile.linkedin;
                 EditProfile.GroupId = editedProfile.GroupId;
@@ -152,7 +157,6 @@ namespace CSharp_Project.Controllers
                 dbContext.SaveChanges();
                 return Redirect($"/students/{uid}");
             }
-           
             return View("EditProfile", EditProfile);
         }
 
