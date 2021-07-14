@@ -255,13 +255,13 @@ body {
   margin-top: 5%;
   display: flex;
   list-style-type: none;
-  width: 830px;
-  margin-left: 30%;
+  width: 1050px;
+  margin-left: 20%;
   overflow: hidden;
 }
 
 .navMenu li {
-  margin-right: -105px;
+  margin-right: -170px;
   margin-left: 20%;
   float: left;
 }

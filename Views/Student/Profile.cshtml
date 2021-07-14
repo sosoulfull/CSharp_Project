@@ -65,6 +65,18 @@
                                             src="https://i.ibb.co/6P4Hq60/Git-Hub-Mark.png" alt="Git-Hub-Mark"
                                             width="35px"></i></a></li>
                             </ul>
+                            <div class="EditP">
+                                @{
+                                    if(Context.Session.GetInt32("uid") != null){
+                                    
+                                        if ((int)Context.Session.GetInt32("uid") == Model.StudentId)
+                                        {
+
+                                            <button class="btn"><a href="/students/edit/@Model.StudentId">Edit profile</button>
+                                        }
+                                    }
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

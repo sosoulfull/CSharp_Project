@@ -1,0 +1,66 @@
+<div class="text-center">
+
+    @model Student;
+    <div class="EditForm">
+        <div class="form--heading">Edit your profile</div>
+        <span class="text-danger" asp-validation-for="FirstName"></span>
+        <span class="text-danger" asp-validation-for="LastName"></span>
+        <span class="text-danger" asp-validation-for="Email"></span>
+        <form asp-action="UpdateProfile" asp-controller="Student"method="post">
+            <div style="display: flex;">
+                <div class="form-group">
+                    <label asp-for="FirstName"> </label>
+                    <input style="margin-right: 20px;" type="text" asp-for="FirstName" placeholder="First Name">
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" type="text" placeholder="Last Name">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input style="width: 300px; margin-left:-30px" asp-for="Email" type="email" placeholder="Email">
+
+            </div>
+
+            <div style="margin-right: 100px;">
+                <div style="margin-left: 10px;" class="form-group">
+                    <label asp-for="StudentGithub"></label>
+                    <input style="width: 300px;" asp-for="StudentGithub" type="url" placeholder="Github">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="linkedin"></label>
+                    <input style="width: 300px;" asp-for="linkedin" type="url" placeholder="Linkdin">
+                </div>
+            </div>
+
+            <div style="display: flex;">
+                <div class="form-group">
+                    <label style="color: black; margin-right:100px;" asp-for="GroupId"></label><br>
+                    <select style="width: 100px;" asp-for="GroupId" class="form-select">
+                        @foreach (Group g in ViewBag.Allgroups)
+                        {
+                            <option value="@g.GroupId">@g.GroupNumber</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label style="color: black;" asp-for="InstructorId"></label><br>
+                    <select style="width: 100px;" asp-for="InstructorId" class="form-select">
+                        @foreach (Instructor i in ViewBag.AllInstructors)
+                        {
+                            <option value="@i.InstructorId">@i.Name</option>
+                        }
+                    </select>
+                </div>
+                
+            </div>
+            <button class="button">Edit</button>
+        </form>
+    </div>
+</div>
