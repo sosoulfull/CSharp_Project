@@ -24,13 +24,13 @@ namespace CSharp_Project.Controllers
             dbContext = context;
         }
 
-        [HttpGet("a")]
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
+        // [HttpGet("a")]
+        // public IActionResult Dashboard()
+        // {
+        //     return View();
+        // }
         [HttpGet("")]
-        public IActionResult Dashboard2()
+        public IActionResult Dashboard()
         {
             ViewBag.Allgroups = dbContext.groups
             .Include(s => s.JoinedStudents)

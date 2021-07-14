@@ -23,20 +23,18 @@ namespace CSharp_Project.Controllers
             4,
             5,
             6,
-            7,
-            8,
-            9,
         };
 
         private static string[] instructors = {
-            "Jason",
-            "Monica",
+            "Jason Brady",
+            "Monica Hong",
         };
 
         private static string[] tas = {
-            "Corey,Jason",
-            "Ghidaa,Jason",
-            "Reem,Monica",
+            "Ghidaa Alahmadi,Jason Brady",
+            "Corey Mckeel,Jason Brady",
+            "Reem Alabbad,Monica Hong",
+            "Nathan Bell,Monica Hong",
         };
 
         [HttpGet("getallthedata")]
@@ -84,7 +82,7 @@ namespace CSharp_Project.Controllers
             context.SaveChanges();
 
 
-            return Redirect("/a");
+            return Redirect("/");
         }
 
 
