@@ -10,9 +10,10 @@
                     <div class="row m-l-0 m-r-0">
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
-                                <img src="https://i.ibb.co/nMfbjW1/group-removebg-preview-1.png" alt="group-removebg-preview-1" height="100px " width="1000px">
+                                <img src="https://i.ibb.co/nMfbjW1/group-removebg-preview-1.png"
+                                    alt="group-removebg-preview-1" height="100px " width="1000px">
                                 <h5 class="f-w-600">@Model.ProjectName</h5>
-                               <p>Done By Group @ViewBag.ThisGroup.GroupNumber</p>
+                                <p>Done By Group @ViewBag.ThisGroup.GroupNumber</p>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -21,45 +22,46 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Group members</p>
-                                       
-                                         @{
-            
-                                            foreach(Student s in ViewBag.ThisGroup.JoinedStudents)
+
+                                        @{
+
+                                            foreach (Student s in ViewBag.ThisGroup.JoinedStudents)
                                             {
                                                 <ul>
-                                                    <li style="margin-left: 20px;"><a href="/students/@s.StudentId">@s.FirstName @s.LastName</a></li>
-                                                </ul>  
+                                                    <li style="margin-left: 20px;"><a href="/students/@s.StudentId">@s.FirstName
+                                                            @s.LastName</a></li>
+                                                </ul>
                                             }
                                         }
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">This project for</p>
                                         <h6 class="text-muted f-w-400">@Model.StackName Stack</h6>
-                                                                     
+
                                     </div>
 
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Description</p>
                                         <h6 class="text-muted f-w-400">@Model.Description</h6>
-                                                                     
-                                    </div>
-                                    
-                                </div>
-                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" ></h6>
-                                <div class="row" style="margin-bottom: 50px;">
-                                   <p class="m-b-10 f-w-600">You can find the source code for this project <a href="@Model.ProjectGithub" target="_blank"> HERE</a></p>
-                                    </div>
-                                </div>
-                                <div class="EditP">
-                                    @{
-                                        if(ViewBag.CanEdit == "yes")
-                                            {
-                                                <p>Edit this Project!</p>
 
-                                               <button class="btn"><a href="/projects/edit/@Model.ProjectId">Edit</button>
-                                            }
-                                    }
+                                    </div>
+
                                 </div>
+                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"></h6>
+                                <div class="row" style="margin-bottom: 50px;">
+                                    <p class="m-b-10 f-w-600">You can find the source code for this project <a
+                                            href="@Model.ProjectGithub" target="_blank"> HERE</a></p>
+                                </div>
+                            </div>
+                            <div class="EditP">
+                                @{
+                                    if (ViewBag.CanEdit == "yes")
+                                    {
+                                        <p>Edit this Project!</p>
+
+                                        <button class="btn"><a href="/projects/edit/@Model.ProjectId">Edit</button>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>

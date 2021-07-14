@@ -1,9 +1,8 @@
-
 <div class="text-center">
-    
+
     @model Project;
-        <div class="EditForm">
-             <div class="form--heading">Edit @Model.ProjectName</div>
+    <div class="EditForm">
+        <div class="form--heading">Edit @Model.ProjectName</div>
         <form asp-action="UpdateProject" asp-controller="Project" method="post">
             <div class="form-group">
                 <input asp-for="ProjectName" class="form-control" placeholder="Project Name">

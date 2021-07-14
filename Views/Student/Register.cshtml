@@ -2,46 +2,46 @@
 @{
     ViewData["Title"] = "Registeration/Login";
 }
-            <div class="container">
-            <div class="message signup">
-                <div class="btn-wrapper">
-                <button class="button" id="signup">Sign Up</button>
-                <button class="button" id="login"> Login</button>
-                </div>
-            </div>
-                   
-            <div class="form form--signup">
-                <div class="form--heading">Welcome! Sign Up</div>
-                <span class="text-danger" asp-validation-for="FirstName"></span>
-                <span class="text-danger" asp-validation-for="LastName"></span>
-                <span class="text-danger" asp-validation-for="Email"></span>
-                <span class="text-danger" asp-validation-for="Password"></span>
-                <span class="text-danger" asp-validation-for="Confirm"></span>
+<div class="container">
+    <div class="message signup">
+        <div class="btn-wrapper">
+            <button class="button" id="signup">Sign Up</button>
+            <button class="button" id="login"> Login</button>
+        </div>
+    </div>
+
+    <div class="form form--signup">
+        <div class="form--heading">Welcome! Sign Up</div>
+        <span class="text-danger" asp-validation-for="FirstName"></span>
+        <span class="text-danger" asp-validation-for="LastName"></span>
+        <span class="text-danger" asp-validation-for="Email"></span>
+        <span class="text-danger" asp-validation-for="Password"></span>
+        <span class="text-danger" asp-validation-for="Confirm"></span>
 
 
 
-               <form asp-action="ProcessReg" asp-controller="Student" method="POST">
+        <form asp-action="ProcessReg" asp-controller="Student" method="POST">
             <div style="display: flex;">
                 <div class="form-group">
-                    <label asp-for="FirstName">  </label>
+                    <label asp-for="FirstName"> </label>
                     <input style="margin-right: 20px;" type="text" asp-for="FirstName" placeholder="First Name">
-                    
+
                 </div>
-                
+
                 <div class="form-group">
                     <label asp-for="LastName"></label>
                     <input asp-for="LastName" type="text" placeholder="Last Name">
-                    
+
                 </div>
             </div>
             <div class="form-group">
                 <label asp-for="Email"></label>
-                <input style="width: 300px;" asp-for="Email"  type="email" placeholder="Email">
-                
+                <input style="width: 300px;" asp-for="Email" type="email" placeholder="Email">
+
             </div>
             <div style="display: flex; margin-top:-20px">
-                <div class="form-group">                    
-                    
+                <div class="form-group">
+
                     <label asp-for="Password"></label>
                     <input style="margin-right: 20px;" type="password" asp-for="Password" placeholder="Password">
                 </div>
@@ -49,16 +49,16 @@
                     <label asp-for="Confirm"></label>
                     <input asp-for="Confirm" type="password" placeholder="Codirm password">
                 </div>
-            </div> 
-            
+            </div>
+
             <div style="margin-right: 100px;">
                 <div style="margin-left: 10px;" class="form-group">
-                    <label asp-for="StudentGithub" ></label>
+                    <label asp-for="StudentGithub"></label>
                     <input asp-for="StudentGithub" type="url" placeholder="Github">
                 </div>
-            
+
                 <div class="form-group">
-                    <label asp-for="linkedin" ></label>
+                    <label asp-for="linkedin"></label>
                     <input asp-for="linkedin" type="url" placeholder="Linkdin">
                 </div>
             </div>
@@ -87,7 +87,5 @@
             <button class="button">Sign up</button>
         </form>
     </div>
-     <partial name="_LoginPartial" />
-
-    </div>
+    <partial name="_LoginPartial" />
 </div>

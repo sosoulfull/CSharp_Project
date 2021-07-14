@@ -38,7 +38,7 @@
                                 </div>
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600" >Projects</h6>
                                 <div class="row" style="margin-bottom: 50px;">
-                                     @{
+                                    @{
                                             foreach(Project p in Model.CreatedProjects)
                                             {
                                                 <ul>
@@ -48,7 +48,7 @@
                                         }
                                     </div>
                                     <div class="addP">
-                                         @{
+                                        @{
                                             if(@Model.JoinedStudents.Any(s => s.StudentId == UserID))
                                             {
                                                 <p>Add a Project to Your Group!</p>

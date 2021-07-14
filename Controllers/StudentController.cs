@@ -24,11 +24,6 @@ namespace CSharp_Project.Controllers
             dbContext = context;
         }
 
-        // [HttpGet("a")]
-        // public IActionResult Dashboard()
-        // {
-        //     return View();
-        // }
         [HttpGet("")]
         public IActionResult Dashboard()
         {
