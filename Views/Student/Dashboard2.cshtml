@@ -4,61 +4,51 @@
 <h3>Dashboard</h3>
 <br>
 </div>
-
-    <button class="tablink" onclick="openPage('Home', this, 'rgb(109, 143, 170)')">Projects</button>
-    <button class="tablink" onclick="openPage('News', this, 'rgb(109, 143, 170)')" id="defaultOpen">Groups</button>
-    @* <button class="tablink" onclick="openPage('Contact', this, 'lightgrey')">Instructors</button>
-    <button class="tablink" onclick="openPage('About', this, 'lightgrey')">About</button> *@
-
 <div class="allcontent">
-    <div id="Home" class="tabcontent">
-    @* <h3>Home</h3>
-    <p>Home is where the heart is..</p> *@
-    <div class="projects">
-        @for(int i =0 ; i< 10 ; i++){
-            <div class="card">
-                <img src="https://png.pngitem.com/pimgs/s/19-191037_building-city-buildings-vector-chuzhou-free-png-hq.png" alt="Denim Jeans" style="width:100%">
-                <h6>The Writers Hub</h6>
-                <p class="stack">MERN Stack</p>
-                <p class="group"><b>Done by:</b> group 1</p>
-                <p>The Writers Hub is  about ..</p>
-                <p><button><a href="projects/{projectId}"></a>Project Details</button></p>
+    <button class="tablink" onclick="openPage('Projects', this, 'rgb(41, 41, 41)')" id="defaultOpen">Projects</button>
+    <button class="tablink" onclick="openPage('Groups', this, 'rgb(41, 41, 41)')" >Groups</button>
+
+    @* Projects tab *@
+    <div id="Projects" class="tabcontent">
+        <div class="projects">
+            @foreach (Project proj in ViewBag.AllProjects)
+            {
+                <div class="card">
+                    <img src="https://png.pngitem.com/pimgs/s/19-191037_building-city-buildings-vector-chuzhou-free-png-hq.png" alt="Denim Jeans" style="width:100%">
+                    <h6><b>@proj.ProjectName</b></h6>
+                    <p class="stack">@proj.StackName Stack</p>
+                    <p class="group"><b>Done by:</b> group @proj.CreatedBy.GroupNumber</p>
+                    <p>@proj.Description</p>
+                    <p><button><a href="/projects/@proj.ProjectId">Project Details</a></button></p>
+                </div>
+            }
+        </div>
+    </div>
+
+    @* Groups tab *@
+    <div id="Groups" class="tabcontent">
+        @foreach (Group g in ViewBag.Allgroups)
+        {
+            <div class="grouplabel">
+                <div >
+                    <h6> Group @g.GroupNumber @g.GroupId</h6>
+                    <p>Members:</p>
+                        @foreach (Student s in g.JoinedStudents)
+                        {
+                            <p>@s.FirstName @s.LastName</p>
+                        }
+                </div>
+                <div>
+                    <button><a href="groups/@g.GroupId">Group Details</a></button>
+                </div>
             </div>
         }
     </div>
-    </div>
 
-
-    <div id="News" class="tabcontent">
-    @* <h3>Groups</h3>
-    <p>Some news this fine day!</p> *@
         
-            @for(int i =0 ; i< 10 ; i++){
-            <div class="grouplabel">
-                <div >
-                <h6> Group @i</h6>
-                <p>Members:</p>
-                </div>
-                <div>
-                <button><a href="groups/{groupId}"></a>Gruop Details</button>
-                </div>
-            </div>
-            }
-        </div>
-        
-    </div>
+</div>
     
 
 
-@* 
-    <div id="Contact" class="tabcontent">
-    <h3>Contact</h3>
-    <p>Get in touch, or swing by for a cup of coffee.</p>
-    </div>
-
-    <div id="About" class="tabcontent">
-    <h3>About</h3>
-    <p>Who we are and what we do.</p>
-    </div> *@
 
 

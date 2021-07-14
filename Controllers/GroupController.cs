@@ -16,6 +16,7 @@ namespace CSharp_Project.Controllers
         }
 
         [HttpGet("groups/{gid}")]
+        [HttpPost("groups/{gid}")]
         public IActionResult GroupDetail(int gid)
         {
             Group thisGroup = dbContext.groups

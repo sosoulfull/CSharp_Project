@@ -2,73 +2,92 @@
 @{
     ViewData["Title"] = "Registeration/Login";
 }
-
-<div class="text-center">
-    <h2>Welcome!</h2>
-</div>
-
-<div class="reg-login-form">
-    <div class="left">
-        <form asp-action="ProcessReg" asp-controller="Student" method="POST">
-            <h2>Register</h2>
-            <div class="form-group">
-                <label asp-for="FirstName"></label><br>
-                <input asp-for="FirstName"><br>
+            <div class="container">
+            <div class="message signup">
+                <div class="btn-wrapper">
+                <button class="button" id="signup">Sign Up</button>
+                <button class="button" id="login"> Login</button>
+                </div>
+            </div>
+                   
+            <div class="form form--signup">
+                <div class="form--heading">Welcome! Sign Up</div>
                 <span class="text-danger" asp-validation-for="FirstName"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName"></label><br>
-                <input asp-for="LastName"><br>
                 <span class="text-danger" asp-validation-for="LastName"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email"></label><br>
-                <input asp-for="Email"><br>
                 <span class="text-danger" asp-validation-for="Email"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password"></label><br>
-                <input asp-for="Password"><br>
                 <span class="text-danger" asp-validation-for="Password"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Confirm"></label><br>
-                <input asp-for="Confirm"><br>
                 <span class="text-danger" asp-validation-for="Confirm"></span>
+
+
+
+               <form asp-action="ProcessReg" asp-controller="Student" method="POST">
+            <div style="display: flex;">
+                <div class="form-group">
+                    <label asp-for="FirstName">  </label>
+                    <input style="margin-right: 20px;" type="text" asp-for="FirstName" placeholder="First Name">
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" type="text" placeholder="Last Name">
+                    
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="StudentGithub"></label><br>
-                <input asp-for="StudentGithub"><br>
+                <label asp-for="Email"></label>
+                <input style="width: 300px;" asp-for="Email"  type="email" placeholder="Email">
+                
+            </div>
+            <div style="display: flex; margin-top:-20px">
+                <div class="form-group">                    
+                    
+                    <label asp-for="Password"></label>
+                    <input style="margin-right: 20px;" type="password" asp-for="Password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Confirm"></label>
+                    <input asp-for="Confirm" type="password" placeholder="Codirm password">
+                </div>
+            </div> 
+            
+            <div style="margin-right: 100px;">
+                <div style="margin-left: 10px;" class="form-group">
+                    <label asp-for="StudentGithub" ></label>
+                    <input asp-for="StudentGithub" type="url" placeholder="Github">
+                </div>
+            
+                <div class="form-group">
+                    <label asp-for="linkedin" ></label>
+                    <input asp-for="linkedin" type="url" placeholder="Linkdin">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="linkedin"></label><br>
-                <input asp-for="linkedin"><br>
-            </div>
+            <div style="display: flex;">
+                <div class="form-group">
+                    <label style="color: black; margin-right:100px;" asp-for="GroupId"></label><br>
+                    <select style="width: 100px;" asp-for="GroupId" class="form-select">
+                        @foreach (Group g in ViewBag.Allgroups)
+                        {
+                            <option value="@g.GroupId">@g.GroupNumber</option>
+                        }
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label asp-for="GroupId"></label><br>
-                <select asp-for="GroupId" class="form-select">
-                    @foreach (Group g in ViewBag.Allgroups)
-                    {
-                        <option value="@g.GroupId">@g.GroupNumber</option>
-                    }
-                </select>
+                <div class="form-group">
+                    <label style="color: black;" asp-for="InstructorId"></label><br>
+                    <select style="width: 100px;" asp-for="InstructorId" class="form-select">
+                        @foreach (Instructor i in ViewBag.AllInstructors)
+                        {
+                            <option value="@i.InstructorId">@i.Name</option>
+                        }
+                    </select>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="InstructorId"></label><br>
-                <select asp-for="InstructorId" class="form-select">
-                    @foreach (Instructor i in ViewBag.AllInstructors)
-                    {
-                        <option value="@i.InstructorId">@i.Name</option>
-                    }
-                </select>
-            </div>
-            <button class="btn btn-primary">Sign up</button>
+            <button class="button">Sign up</button>
         </form>
     </div>
-    <div class="right">
-        <partial name="_LoginPartial" />
+     <partial name="_LoginPartial" />
+
     </div>
 </div>

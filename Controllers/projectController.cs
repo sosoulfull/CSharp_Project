@@ -11,7 +11,7 @@ namespace CSharp_Project.Controllers
     public class ProjectController : Controller
     {
         private MyContext dbContext;
-        
+
         public ProjectController(MyContext context)
         {
             dbContext = context;
@@ -20,18 +20,26 @@ namespace CSharp_Project.Controllers
         [HttpGet("project/create")]
         public IActionResult NewProject()
         {
-            return View();
+            if(HttpContext.Session.GetInt32("uid") != null)
+                return View();
+            return Redirect("/");
         }
 
         [HttpPost("CreateProject")]
         public IActionResult CreateProject(Project newProject)
         {
-            int? id =  HttpContext.Session.GetInt32("uid");
-            int gid = dbContext.students.FirstOrDefault(u => u.StudentId == id ).GroupId;
-            newProject.GroupId = gid;
-            dbContext.projects.Add(newProject);
-            dbContext.SaveChanges();
-            return Redirect("/");
+            if (ModelState.IsValid)
+            {
+                int? id = HttpContext.Session.GetInt32("uid");
+                int gid = dbContext.students.FirstOrDefault(u => u.StudentId == id).GroupId;
+                newProject.GroupId = gid;
+                dbContext.projects.Add(newProject);
+                dbContext.SaveChanges();
+                return Redirect("/");
+            }
+
+            return View("NewProject", newProject);
+
         }
 
         [HttpGet("projects/{projId}")]
@@ -43,8 +51,8 @@ namespace CSharp_Project.Controllers
             .Include(g => g.CreatedProjects)
             .FirstOrDefault(g => g.GroupId == thisProject.GroupId);
             List<Student> groupMembers = ViewBag.ThisGroup.JoinedStudents;
-            int? id =  HttpContext.Session.GetInt32("uid");
-            if(groupMembers.Any(s => s.StudentId == id ))
+            int? id = HttpContext.Session.GetInt32("uid");
+            if (groupMembers.Any(s => s.StudentId == id))
             {
                 ViewBag.CanEdit = "yes";
             }
@@ -56,5 +64,33 @@ namespace CSharp_Project.Controllers
             return View(thisProject);
         }
 
+        [HttpGet("projects/edit/{projId}")]
+
+        public IActionResult EditProject(int projId)
+        {
+            if (HttpContext.Session.GetInt32("uid") != null)
+            {
+                Project projectToEdit = dbContext.projects.FirstOrDefault(p => p.ProjectId == projId);
+                return View("EditProject", projectToEdit);
+            }
+            return Redirect($"/projects/{projId}");
+        }
+
+        [HttpPost("projects/edit/{projId}")]
+        public IActionResult UpdateProject(int projId, Project editedProject)
+        {
+            Project projectToEdit = dbContext.projects.FirstOrDefault(p => p.ProjectId == projId);
+            if (ModelState.IsValid)
+            {
+                projectToEdit.ProjectName = editedProject.ProjectName;
+                projectToEdit.Description = editedProject.Description;
+                projectToEdit.StackName = editedProject.StackName;
+                projectToEdit.ProjectGithub = editedProject.ProjectGithub;
+                projectToEdit.UpdatedAt = DateTime.Now;
+                dbContext.SaveChanges();
+                return Redirect($"/projects/{projId}");
+            }
+            return View("EditProject", projectToEdit);
+        }
     }
 }

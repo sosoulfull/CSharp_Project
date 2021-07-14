@@ -13,13 +13,11 @@ a {
 }
 
 .btn-primary {
-  color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
@@ -48,7 +46,7 @@ a {
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 240px; /*was200*/
+  width: 240px; /*was200*/
   display: inline-block;
   margin: 15px;
   text-align: center;
@@ -56,7 +54,7 @@ a {
   font-size: 10px;
 }
 .card img{
-  max-width: min-content;
+  width: inherit;
 }
 
 .stack {
@@ -95,10 +93,12 @@ body, html {
   margin: 0;
   font-family: Arial;
 }
-
+.allcontent{
+  width: 900px;
+}
 /* Style tab links */
 .tablink {
-  background-color: #555;
+  background-color: rgb(139, 139, 139);
   color: white;
   float: left;
   border: none;
@@ -107,7 +107,7 @@ body, html {
   padding: 14px 16px;
   font-size: 17px;
   width: 50%;
-  /* background-color: rgb(109, 143, 170); */
+  /* background-color: rgb(41, 41, 41); */
 }
 
 .tablink:hover {
@@ -116,34 +116,41 @@ body, html {
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
-  color: white;
+  /* color: white; */
+  color: rgb(0, 0, 0);
   display: none;
-  padding: 100px 20px;
+  padding: 70px 20px;
   height: 100%;
+  /* background-color: blue!Important; */
+}
+.tabcontent a{
+  color: white;
 }
 .grouplabel{
   background-color: white;
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 100px;
+  /* width: 600px; */
   color: black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 30px;
   padding-left: 20px;
   padding-right: 20px;
+  /* padding: 20px; */
   text-align: center;
   font-size: 10px;
 }
 .grouplabel div{
   padding: 10px;
 }
-.grouplabel button{
-  margin-top: 15px;
-}
+
 .grouplabel button {
   border: none;
   outline: 0;
   padding: 12px;
+  margin-top: 15px;
+  margin-right: 50px;
   color: white;
   background-color: #000;
   text-align: center;
@@ -158,8 +165,9 @@ body, html {
 
 /* #Home {background-color: rgb(186, 215, 224);}
 #News {background-color: rgb(148, 196, 160);} */
-#Home {background-color: rgb(232, 240, 241);}
-#News {background-color: rgb(232, 240, 241);} 
+/* #Home {background-color: rgb(232, 240, 241);} */
+#Projects {background-color: rgb(243, 242, 242);}
+#Groups {background-color: rgb(243, 242, 242);} 
 
 #Contact {background-color: rgb(221, 222, 250);}
 #About {background-color: rgb(252, 222, 167);}
@@ -181,12 +189,6 @@ html {
   }
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
 
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
@@ -231,7 +233,271 @@ body {
   margin-top: 30px;
 }
 
-.content button a{
-color: white;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+
+
+.navMenu {
+  position: absolute;
+ 
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.navMenu a {
+  margin-top: 50px;
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #fddb3a;
+}
+
+.navMenu .dot {
+  width: 10px;
+  height: 10px;
+  background: #fddb3a;
+  border-radius: 80%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(200px);
+  transform: translateX(200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(285px);
+  transform: translateX(285px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+
+
+
+/* =Jumbotron Main
+-------------------------------------------------------------- */
+.jumbotron.jumbotron-main { 
+  height: 100%;
+	width: 100%;
+padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 50px;
+}
+
+#particles-js {
+	position: absolute;
+	width: 100%;
+	height: 120px;
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 20% 20%;
+	background: #343536; /* Old browsers */
+	background: -moz-linear-gradient(left, #343536 0%, #343536 35%, #343536 68%, #343536 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #343536 0%,#343536 35%,#343536 68%,#343536 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #343536 0%,#343536 35%,#343536 68%,#343536 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#343536', endColorstr='#6980f2',GradientType=1 ); /* IE6-9 */
+}
+
+.jumbotron.jumbotron-main hr {
+    border-style: dotted none;
+    border-color: rgba(255, 255, 255, 0.35);
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    position: relative;
+    clear: both;
+}
+
+.jumbotron.jumbotron-main a {
+    color: #fff;
+}
+
+.center-vertically {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.center-vertically-holder { 
+	display: table;
+	height: 100%;
+}
+
+.scroll-indicator {
+	padding-top:6px;
+    display: inline-block;
+    width: 200px;
+}
+
+.arrow-scroll-indicator {
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.60);
+}
+
+.parallax-window {
+    background: transparent;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+
+
+body, .message, .form, form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.container {
+  width: 1100px;
+  margin-top: 35px;
+  margin-left: 150px;
+  background: white;
+  position: relative;
+  display: grid;
+  grid-template: 100% / 50% 50%;
+  box-shadow: 2px 2px 10px 0 rgba(#333, 0.2);
+}
+
+.message {
+  position: absolute;
+  background: white;
+  width: 50%;
+  height: 100%;
+  transition: 0.5s all ease;
+  transform: translateX(100%);
+  z-index: 4;
+}
+  :before {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 70%;
+    background: grey;
+    opacity: 0;
+    left: 0;
+    top:15%;
+  }
+  
+  .button {
+    margin: 5px 0;
+  }
+
+.btn-wrapper {
+  width: 60%;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+}
+  .form--heading {
+    font-size: 18px;
+    height: 50px;
+    color: rgb(160, 160, 160);
+    font-family: 'Playfair Display', serif;
+  
+}
+.text-danger{
+  color: red;
+  font: medium;
+}
+form {
+  width: 100%;
+    margin: 10px;
+  }
+  label{
+    color: white;
+  }
+  input {
+    width: 250px;
+    border-bottom: 1px solid rgba(grey, 0.5);
+    font-size: 15px;
+    font-weight: 300px;
+    color: #000000;
+    letter-spacing: 0.11em;
+  }
+    ::placeholder {
+      color: #bebcbc;
+      font-size: 15px;
+    }
+
+    :focus {
+      outline: 0;
+      border-bottom: 1px solid rgba(blue, 0.7);
+      transition: 0.6s all ease;
+    }
+  
+
+.button {
+  width: 100%;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  position: relative;
+  z-index: 3;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, rgb(52,53,54), rgb(52,53,54));
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+}
+
+
+@media (max-width: 750px){
+  .container {
+    transform: scale(0.8);
+  }
+}

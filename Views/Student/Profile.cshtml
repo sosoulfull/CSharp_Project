@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Student Profile";
+}
+@model Student 
+
+<div>
+    <h1>@Model.FirstName @Model.LastName profile</h1>
+
+    <p> With Group: <a href="/groups/@Model.GroupId">@Model.group.GroupNumber</a></p>
+    <p> Contact info: </p>
+    <ul>
+        <li>
+            <a href ="mailto:@Model.Email" target="_blank">E-Mail</a>
+        </li>
+        <li>
+            <a href="@Model.linkedin" target="_blank">Linkedin</a>
+        </li>
+        <li>
+            <a href="@Model.StudentGithub" target="_blank">GitHub</a>
+        </li>
+    </ul>
+    <p>Projects Worked on:</p>
+    <div>
+        @{
+            
+                foreach(Project p in ViewBag.AllProjects.CreatedProjects)
+                {
+                    <ul>
+                        <li><a href="/projects/@p.ProjectId">@p.ProjectName</a></li>
+                    </ul>  
+                }
+        }
+    </div>
+    <div class="instructor">
+        <h3>Bootcamp Staff</h3>
+        @{
+            <p>Instructor: @ViewBag.InstructorWithTAs.Name</p>
+            <p>TAs:</p>
+            foreach(TA ta in ViewBag.InstructorWithTAs.TAs)
+            {
+                <p>@ta.Name</p>
+            }
+        }
+    </div>
+</div>
