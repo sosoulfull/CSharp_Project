@@ -44,7 +44,7 @@ a {
   padding: 5px;
   /* background-color: #0366d6; */
 }
-.card {
+.proj-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 240px; /*was200*/
   display: inline-block;
@@ -53,7 +53,7 @@ a {
   font-family: arial;
   font-size: 10px;
 }
-.card img{
+.proj-card img{
   width: inherit;
 }
 
@@ -66,7 +66,7 @@ a {
   font-size: 10px;
 }
 
-.card button {
+.proj-card button {
   border: none;
   outline: 0;
   padding: 12px;
@@ -78,7 +78,7 @@ a {
   font-size: 18px;
 }
 
-.card button:hover {
+.proj-card button:hover {
   opacity: 0.7;
 }
 
@@ -250,65 +250,41 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.navMenu a {
-  margin-top: 50px;
+
+.navMenu ul {
+  margin-top: 5%;
+  display: flex;
+  list-style-type: none;
+  width: 830px;
+  margin-left: 30%;
+  overflow: hidden;
+}
+
+.navMenu li {
+  margin-right: -105px;
+  margin-left: 20%;
+  float: left;
+}
+
+.navMenu li .nav-link {
+
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
   color: #f6f4e6;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 16px;
   text-transform: uppercase;
   font-weight: 500;
+  font-family: "Montserrat", sans-serif;
   display: inline-block;
-  width: 80px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  font-family: "Montserrat", sans-serif;
 }
 
-.navMenu a:hover {
+.navMenu li a:hover {
   color: #fddb3a;
-}
-
-.navMenu .dot {
-  width: 10px;
-  height: 10px;
-  background: #fddb3a;
-  border-radius: 80%;
-  opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.navMenu a:nth-child(1):hover ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(2):hover ~ .dot {
-  -webkit-transform: translateX(110px);
-  transform: translateX(110px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(3):hover ~ .dot {
-  -webkit-transform: translateX(200px);
-  transform: translateX(200px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(4):hover ~ .dot {
-  -webkit-transform: translateX(285px);
-  transform: translateX(285px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
 }
 
 
@@ -467,6 +443,14 @@ form {
     color: #000000;
     letter-spacing: 0.11em;
   }
+  textarea {
+    width: 250px;
+    border-bottom: 1px solid rgba(grey, 0.5);
+    font-size: 15px;
+    font-weight: 300px;
+    color: #000000;
+    letter-spacing: 0.11em;
+  }
     ::placeholder {
       color: #bebcbc;
       font-size: 15px;
@@ -500,4 +484,207 @@ form {
   .container {
     transform: scale(0.8);
   }
+}
+
+
+
+.user-card-full {
+  overflow: hidden
+}
+
+.card {
+  margin-top: 50px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+  border: none;
+  width:1000px;
+  margin-left: -30%;
+  margin-bottom: 30px
+}
+
+.card-block img{
+  margin-top: 15%;
+  margin-bottom: 5%;
+  width: 25%;
+  -webkit-animation: mover 2s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+
+.user-card-full .user-profile {
+  border-radius: 5px 0 0 5px;
+}
+
+.bg-c-lite-green {
+  background: -webkit-gradient(linear, left top, right top, from(#646464), to(#353637));
+  background: linear-gradient(to right, #353637, #6b6b6b)
+}
+
+.user-profile {
+
+  padding-top: 50px;
+}
+
+.card-block {
+  padding: 1.25rem;
+
+}
+
+.m-b-25 {
+  margin-bottom: 25px
+}
+
+.img-radius {
+  border-radius: 5px
+}
+
+h6 {
+  font-size: 14px
+}
+
+.card .card-block p {
+  line-height: 25px;
+}
+
+
+
+.card-block {
+  padding: 1.25rem;
+  
+}
+
+.b-b-default {
+  border-bottom: 1px solid #e0e0e0
+}
+
+.m-b-20 {
+  margin-bottom: 100px
+}
+
+.p-b-5 {
+  padding-bottom: 100px !important
+}
+
+.card .card-block p {
+  line-height: 25px
+}
+
+.m-b-10 {
+  margin-bottom: 10px
+}
+
+.text-muted {
+  color: #919aa3 !important
+}
+
+.b-b-default {
+  border-bottom: 1px solid #e0e0e0
+}
+
+.f-w-600 {
+  font-weight: 600
+}
+
+.m-b-20 {
+  margin-bottom: 20px
+}
+
+.m-t-40 {
+  margin-top: 20px
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important
+}
+
+.m-b-10 {
+  margin-bottom: 10px
+}
+
+.m-t-40 {
+  margin-top: 20px
+}
+
+.user-card-full .social-link li {
+  display: inline-block
+}
+
+.user-card-full .social-link li a {
+  font-size: 20px;
+  margin: 0 10px 0 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out
+}
+.EditP{
+  margin-left: 250px;
+}
+
+.EditP p{
+  margin-left: 8px;
+}
+.EditP button{
+  border: 2px;
+  background-color: #353637;
+  color: white;
+  width: 130px;
+  margin-bottom: 50px;
+}
+
+.EditP a {
+  color: white;
+}
+
+.Editbtn{
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  border: 2px;
+  background-color: #353637;
+  color: white;
+}
+.EditForm{
+  margin-top: 20px;
+  width: 500px;
+  margin-left: 300px;
+}
+
+.EditForm .form-control{
+  width: 400px;
+}
+.EditForm textarea{
+  height: 200px;
+}
+
+
+.addP{
+  margin-left: 250px;
+}
+.addP button{
+  border: 2px;
+  background-color: #353637;
+  color: white;
+  width: 130px;
+  margin-bottom: 50px;
+}
+
+.addP a {
+  color: white;
+}
+
+.addP button{
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  border: 2px;
+  background-color: #353637;
+  color: white;
 }

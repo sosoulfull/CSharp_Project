@@ -17,19 +17,27 @@
     	<div class="center-vertically">
     		<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
                 <nav class="navMenu">
-                             <a class="nav-link" asp-area="" asp-controller="Student" asp-action="Dashboard">Home</a>
+                     <ul>
+                   
+                             <li><a class="nav-link" asp-area="" asp-controller="Student" asp-action="Dashboard">Home</a></li>
                  
                             @{
+                                
                                 if(Context.Session.GetInt32("uid") != null)
-                                {
-                                    <a class="nav-link " asp-area="" asp-controller="Student" asp-action="Logout">Logout</a>
+                                {   int id  = (int)Context.Session.GetInt32("uid");
+                                
+                                    <li><a  class="nav-link" href="/students/@id">My profile</a></li>
+                                    <li><a  class="nav-link" href="/project/create">Create projects</a></li>     
+                                    <li><a class="nav-link"  asp-controller="Student" asp-action="Logout">Logout</a></li>
                                 }
                                 else
                                 {
-                                    <a class="nav-link " asp-area="" asp-controller="Student" asp-action="RegLogin">Login/Register</a>
+                                    <li><a class="nav-link " asp-area="" asp-controller="Student" asp-action="RegLogin">Login/Register</a></li>
                                 }
-                            }
+                            } 
+                        
                         <div class="dot"></div>
+                        </ul>
                 </nav>
     		</div>
     		</div>
