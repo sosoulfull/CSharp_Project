@@ -13,7 +13,8 @@
                                 <img src="https://i.ibb.co/nMfbjW1/group-removebg-preview-1.png"
                                     alt="group-removebg-preview-1" height="100px " width="1000px">
                                 <h5 class="f-w-600">@Model.ProjectName</h5>
-                                <p>Done By Group @ViewBag.ThisGroup.GroupNumber</p>
+                                <p>Done By Group <a style="color: white;"
+                                        href="/groups/@Model.GroupId">@Model.CreatedBy.GroupNumber</a></p>
                             </div>
                         </div>
                         <div class="col-sm-8">
