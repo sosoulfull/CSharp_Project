@@ -27,26 +27,15 @@ a {
 
 /* ------------R-------------- */
 
-
-
-
-
-
-
-
-
-/* DRAFT */
+/* Project Tab */
 .projects{
-  /* display: inline; */
-  /* justify-content: space-between; */
   width: 860px;
   margin: 20px;
   padding: 5px;
-  /* background-color: #0366d6; */
 }
 .proj-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 240px; /*was200*/
+  width: 240px; 
   display: inline-block;
   margin: 15px;
   text-align: center;
@@ -83,20 +72,17 @@ a {
 }
 
 
+/* Tabs and Groups */
 
-
-
-/* DRAFT 2 */
-/* Set height of body and the document to 100% to enable "full page tabs" */
 body, html {
-  /* height: 100%; */
+  /* height: 100%; enable "full page tabs */
   margin: 0;
   font-family: Arial;
 }
 .allcontent{
   width: 900px;
 }
-/* Style tab links */
+
 .tablink {
   background-color: rgb(139, 139, 139);
   color: white;
@@ -107,21 +93,19 @@ body, html {
   padding: 14px 16px;
   font-size: 17px;
   width: 50%;
-  /* background-color: rgb(41, 41, 41); */
 }
 
 .tablink:hover {
   background-color: #777;
 }
 
-/* Style the tab content (and add height:100% for full page content) */
+/*  ( height:100% for full page content) */
 .tabcontent {
   /* color: white; */
   color: rgb(0, 0, 0);
   display: none;
   padding: 70px 20px;
   height: 100%;
-  /* background-color: blue!Important; */
 }
 .tabcontent a{
   color: white;
@@ -163,15 +147,11 @@ body, html {
   opacity: 0.7;
 }
 
-/* #Home {background-color: rgb(186, 215, 224);}
-#News {background-color: rgb(148, 196, 160);} */
-/* #Home {background-color: rgb(232, 240, 241);} */
 #Projects {background-color: rgb(243, 242, 242);}
 #Groups {background-color: rgb(243, 242, 242);} 
 
-#Contact {background-color: rgb(221, 222, 250);}
-#About {background-color: rgb(252, 222, 167);}
-
+/* #Contact {background-color: rgb(221, 222, 250);}
+#About {background-color: rgb(252, 222, 167);} */
 
 /* ------------r-------------- */
 
