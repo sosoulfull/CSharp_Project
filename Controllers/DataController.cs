@@ -42,12 +42,9 @@ namespace CSharp_Project.Controllers
         {
             foreach(int t in groups)
             {
-                // string[] info = t.Split(",");
                 context.groups.Add(
                     new Group() {
                         GroupNumber=t
-                        // TeamName=info[1],
-                        // LeagueId=Int32.Parse(info[2])
                     }
                 );
             }
@@ -56,12 +53,9 @@ namespace CSharp_Project.Controllers
 
             foreach(string x in instructors)
             {
-                // string[] info = t.Split(",");
                 context.instructors.Add(
                     new Instructor() {
                         Name=x
-                        // TeamName=info[1],
-                        // LeagueId=Int32.Parse(info[2])
                     }
                 );
             }
