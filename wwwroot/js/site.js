@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-
+//W.A.R.S
 $("#signup").click(function() {
 	$(".message").css("transform", "translateX(100%)");
 	if ($(".message").hasClass("login")) {

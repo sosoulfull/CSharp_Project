@@ -47,9 +47,10 @@ namespace CSharp_Project.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
-        [Display( Name = "Instructor")]
+        [Display( Name = "Instructor:")]
         public int InstructorId {get;set;}
         public Instructor instructor {get;set;}
+        [Display(Name="Group Number:")]
         public int GroupId {get;set;}
         public Group group {get;set;}
     }
